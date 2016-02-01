@@ -74,18 +74,26 @@
 			<scope>runtime</scope>
 		</dependency>
 
+        <!-- log4j -->
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
 	</dependencies>
 	
 	<build>
 		<finalName>springmvcexample</finalName>
 		<plugins>
+		<!-- 
 			<plugin>
 		   		<groupId>org.apache.maven.plugins</groupId>
 	           	<artifactId>maven-war-plugin</artifactId>
 	           	<configuration>
 	               <webappDirectory>D:\software\apache-tomcat-7.0.56\webapps\springmvcexample</webappDirectory>
 	           	</configuration>
-	       	</plugin> 
+	       	</plugin>  -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>

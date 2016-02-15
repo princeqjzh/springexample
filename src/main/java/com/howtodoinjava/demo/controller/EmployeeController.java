@@ -19,13 +19,14 @@ public class EmployeeController
 
     @RequestMapping(value = "/getAllEmployees", method = RequestMethod.GET)
 	public String getAllEmployees(Model model){
+        logger.info("Call getAllEmployees()!");
 		model.addAttribute("employees", manager.getAllEmployees());
 		return "employeesListDisplay";
 	}
 
     @RequestMapping(value = "/sayHello", method = RequestMethod.GET)
     public String hello(Model model){
-        logger.warn("hello has been invoked!");
+        logger.info("Call hello()!");
         return "hello";
     }
 }

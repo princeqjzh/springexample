@@ -1,10 +1,15 @@
 package com.howtodoinjava.test;
 
-import static org.junit.Assert.assertTrue;
-
+import com.howtodoinjava.demo.dao.EmployeeDAOImpl;
+import com.howtodoinjava.demo.model.EmployeeVO;
+import com.howtodoinjava.demo.service.EmployeeManagerImpl;
 import org.junit.Test;
 
-import com.howtodoinjava.demo.model.EmployeeVO;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+
 
 public class EmployeeVOTest {
 
@@ -19,6 +24,30 @@ public class EmployeeVOTest {
 			evo.setFirstName(firstName);
 			evo.setLastName(lastName);
 	}
+
+    @Test
+    public void testEM(){
+        EmployeeManagerImpl emi = new EmployeeManagerImpl();
+
+        emi.getAllEmployees();
+    }
+
+    @Test
+    public void testAllEmployee(){
+        EmployeeDAOImpl empDAO = new EmployeeDAOImpl();
+        List<EmployeeVO> le = empDAO.getAllEmployees();
+        List<String> fnResult = new ArrayList<String>();
+
+        fnResult.add("Lokesh");
+        fnResult.add("Raj");
+        fnResult.add("Jim");
+
+        assertTrue("Employees number >= 3",le.size() >= 3);
+
+        for(int i = 0; i < 3; i++){
+            assertTrue("Employee first name verify: ", le.get(i).getFirstName().equals(fnResult.get(i)));
+        }
+    }
 	
 	@Test
 	public void getIdTest(){
